@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Test Image
-        run: docker build -f ./dockerfiles/dockerfile.test -t registry_test .
+        run: docker build -f ./dockerfiles/Dockerfile.test -t registry_test .
 
       - name: Run Test
-        run: docker run -rm registry_test
+        run: docker run --rm registry_test
