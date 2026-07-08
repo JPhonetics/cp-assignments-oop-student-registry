@@ -1,0 +1,17 @@
+name: Registry Test
+
+on:
+  push:
+
+jobs:
+  registry-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Test Image
+        run: docker build -f ./dockerfiles/dockerfile.test -t registry_test .
+
+      - name: Run Test
+        run: docker run -rm registry_test
